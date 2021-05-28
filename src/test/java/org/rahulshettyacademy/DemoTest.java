@@ -1,17 +1,13 @@
 package org.rahulshettyacademy;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.rahulshettyacademy.PageComponents.MultiTrip;
-import org.rahulshettyacademy.PageComponents.RoundTrip;
 import org.rahulshettyacademy.PageObjects.TravelHomePage;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
@@ -53,23 +49,23 @@ public class DemoTest extends BaseTest{
     }
 
     @DataProvider
-    public Object [][] getData(){
-        //C:\out\reservationDetails.json
-        HashMap<String,String> reservationDetails = new <String, String>HashMap();
-        reservationDetails.put("origin", "MAA");
-        reservationDetails.put("destination", "HYD");
-        reservationDetails.put("destination", "DEL");
+    public Object [][] getData() throws IOException {
+//        //C:\out\reservationDetails.json
+//        HashMap<String,String> reservationDetails = new <String, String>HashMap();
+//        reservationDetails.put("origin", "MAA");
+//        reservationDetails.put("destination", "HYD");
+//        reservationDetails.put("destination", "DEL");
+//
+//        HashMap<String,String> reservationDetails1 = new <String, String>HashMap();
+//        reservationDetails1.put("origin", "MAA");
+//        reservationDetails1.put("destination", "HYD");
+//        reservationDetails1.put("destination", "VTZ");
+//
+//        List<HashMap<String, String>> l = new ArrayList();
+//        l.add(reservationDetails);
+//        l.add(reservationDetails1);
 
-        HashMap<String,String> reservationDetails1 = new <String, String>HashMap();
-        reservationDetails1.put("origin", "MAA");
-        reservationDetails1.put("destination", "HYD");
-        reservationDetails1.put("destination", "VTZ");
-
-        List<HashMap<String, String>> l = new ArrayList();
-        l.add(reservationDetails);
-        l.add(reservationDetails1);
-
-
+        List<HashMap<String, String>> l=getJsonData(System.getProperty("user.dir") + "//src//test//java//org//rahulshettyacademy//DataLoads//reservationDetails.json");
         return new Object[][]{
                 {
                     l.get(0)
