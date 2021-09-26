@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.rahulshettyacademy.AbstractComponents.SearchFlightAvail;
 import org.rahulshettyacademy.AbstractComponents.StrategyFactor;
 import org.rahulshettyacademy.PageComponents.FooterNav;
-import org.rahulshettyacademy.PageComponents.MultiTrip;
 import org.rahulshettyacademy.PageComponents.NavigationBar;
 
 import java.util.HashMap;
@@ -46,6 +45,10 @@ public class TravelHomePage {
     public void checkAvail(HashMap<String,String> reservationDetails){
 
         searchFlightAvail.checkAvail(reservationDetails);
+    }
+
+    public String getTitle(){
+        return driver.getTitle();
     }
 
 //    public void getLinksCount(String algo){
